@@ -1,6 +1,8 @@
 package com.example.securityapp.data;
 
 import com.example.securityapp.data.model.LoggedInUser;
+import com.example.securityapp.ui.login.AccessLevel;
+import com.example.securityapp.ui.login.LoginActivity;
 
 import java.io.IOException;
 
@@ -9,15 +11,22 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    public Result<LoggedInUser> login(String username, String password) {
+    protected String adminPassword = "12345";
+    protected String userPassword = "1234";
+
+    public Result<LoggedInUser> login(String password) {
+        LoggedInUser validUser = null;
 
         try {
-            // TODO: handle loggedInUser authentication
-            LoggedInUser fakeUser =
-                    new LoggedInUser(
-                            java.util.UUID.randomUUID().toString(),
-                            "Jane Doe");
-            return new Result.Success<>(fakeUser);
+            if (password.equals(adminPassword)) {
+                validUser = new LoggedInUser("1","Admin", AccessLevel.FULL);
+            } else if (password.equals(userPassword)) {
+                validUser = new LoggedInUser("2","User", AccessLevel.NORMAL);
+            } else {
+                return new Result.Fail("Unauthorised attempt");
+            }
+
+            return new Result.Success<>(validUser);
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
         }

@@ -5,8 +5,6 @@ package com.example.securityapp.data;
  */
 public class Result<T> {
     // hide the private constructor to limit subclass types (Success, Error)
-    private Result() {
-    }
 
     @Override
     public String toString() {
@@ -30,6 +28,17 @@ public class Result<T> {
 
         public T getData() {
             return this.data;
+        }
+    }
+
+    // Fail sub-class
+    public final static class Fail extends Result {
+        private String msg;
+
+        public Fail (String msg) { this.msg = msg;}
+
+        public String getMessage () {
+            return this.msg;
         }
     }
 
