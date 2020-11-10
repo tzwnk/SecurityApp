@@ -30,7 +30,7 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(mainIntent);
                 finish();
             }
-        }, 3000);
+        }, 2500);
 
     }
 }
