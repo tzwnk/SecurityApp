@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity
     private LoginViewModel loginViewModel;
     private final String defaultPhrase = "Please type password";
     private int counter = 3;
+    static public boolean isAlarmActive = false;
 
     private TextView attemptsInfo;
     private TextView inputDisplay;
@@ -84,9 +85,6 @@ public class LoginActivity extends AppCompatActivity
                 }
             }
         });
-
-
-
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
 
