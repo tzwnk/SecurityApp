@@ -30,4 +30,55 @@
             android:id="@+id/txtAlarm"
             app:layout_constraintStart_toStartOf="@+id/btnEnableAlarm"
             app:layout_constraintTop_toBottomOf="@+id/btnEnableAlarm" />
+
+    <ImageButton
+            android:layout_width="141dp"
+            android:layout_height="118dp"
+            app:srcCompat="@drawable/settings"
+            android:id="@+id/btnSettings"
+            android:scaleType="fitCenter"
+            android:background="@drawable/selectable_button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.499"
+            app:layout_constraintHorizontal_bias="0.14" />
+
+    <TextView
+            android:layout_width="141dp"
+            android:layout_height="61dp"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:text="ΡΥΘΜΙΣΕΙΣ"
+            android:ems="10"
+            android:id="@+id/txtSettings"
+            app:layout_constraintStart_toStartOf="@+id/btnSettings"
+            app:layout_constraintTop_toBottomOf="@+id/btnSettings"/>
+
+    <ImageButton
+            android:layout_width="141dp"
+            android:layout_height="118dp"
+            app:srcCompat="@drawable/soscall"
+            android:id="@+id/btnSOSCall"
+            android:scaleType="fitCenter"
+            android:background="@drawable/selectable_button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.12"
+            app:layout_constraintHorizontal_bias="0.844" />
+
+    <TextView
+            android:layout_width="141dp"
+            android:layout_height="61dp"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:text="ΚΛΗΣΗ 112"
+            android:ems="10"
+            android:id="@+id/txtSOSCAll"
+            app:layout_constraintStart_toStartOf="@+id/btnSOSCall"
+            app:layout_constraintTop_toBottomOf="@+id/btnSOSCall"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,8 @@ package com.example.securityapp.home;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,10 +14,14 @@ import android.widget.Toast;
 import com.example.securityapp.R;
 import com.example.securityapp.ui.login.LoginActivity;
 
+import java.net.URI;
+
 public class HomePageActivity extends AppCompatActivity
                             implements View.OnClickListener {
 
     ImageButton btnAlarm;
+    ImageButton btnSOSCall;
+    ImageButton btnSettings;
     TextView txtAlarm;
 
     @Override
@@ -25,13 +31,23 @@ public class HomePageActivity extends AppCompatActivity
         btnAlarm = findViewById(R.id.btnEnableAlarm);
         btnAlarm.setOnClickListener(this);
         txtAlarm = findViewById(R.id.txtAlarm);
+        btnSOSCall = findViewById(R.id.btnSOSCall);
+        btnSOSCall.setOnClickListener(this);
+        btnSettings = findViewById(R.id.btnSettings);
+        btnSettings.setOnClickListener(this);
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnEnableAlarm:
                 promptVerification(LoginActivity.isAlarmActive);
-
+                break;
+            case R.id.btnSettings:
+                loadSettingsActivity();
+                break;
+            case R.id.btnSOSCall:
+                performSOSCall();
+                break;
         }
     }
 
@@ -76,7 +92,21 @@ public class HomePageActivity extends AppCompatActivity
         }
     }
 
-    //TODO: 1) kleidwma (me parathuro epivevaiwsis), 2) ksekleidwma, 3) rythmiseis (alli selida),
+    private void loadSettingsActivity () {
+        Intent intent = new Intent (HomePageActivity.this,
+                SettingsActivity.class);
+        startActivity(intent);
+    }
+
+    private void performSOSCall () {
+        Intent intent = new Intent (Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:112"));
+        startActivity(intent);
+    }
+
+
+
+    //TODO: 1) rythmiseis (alli selida),
     // allakse glwssa kai kwdikous
 
 }
