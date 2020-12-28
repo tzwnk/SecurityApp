@@ -11,8 +11,8 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    protected String adminPassword = "12345";
-    protected String userPassword = "1234";
+    public static String adminPassword = "12345";
+    public static String userPassword = "1234";
 
     public Result<LoggedInUser> login(String password) {
         LoggedInUser validUser = null;

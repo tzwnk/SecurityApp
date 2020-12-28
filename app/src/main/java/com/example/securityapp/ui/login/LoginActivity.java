@@ -176,6 +176,16 @@ public class LoginActivity extends AppCompatActivity
         String welcome = "Welcome " + model.getDisplayName();
         Intent intent = new Intent (LoginActivity.this,
                                         HomePageActivity.class);
+        //Create the bundle
+        Bundle bundle = new Bundle();
+
+        //Add your data to bundle
+        bundle.putString("loggedUser", model.getDisplayName());
+
+        //Add the bundle to the intent
+        intent.putExtras(bundle);
+
+        //Fire that second activity
         startActivity(intent);
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_SHORT).show();
         finish();

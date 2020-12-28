@@ -22,7 +22,9 @@ public class HomePageActivity extends AppCompatActivity
     ImageButton btnAlarm;
     ImageButton btnSOSCall;
     ImageButton btnSettings;
+    TextView txtSettings;
     TextView txtAlarm;
+    String loggedUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,10 @@ public class HomePageActivity extends AppCompatActivity
         btnSOSCall.setOnClickListener(this);
         btnSettings = findViewById(R.id.btnSettings);
         btnSettings.setOnClickListener(this);
+        txtSettings = findViewById(R.id.txtSettings);
+        Bundle bundle = getIntent().getExtras();
+        loggedUser = bundle.getString("loggedUser");
+        toggleSettingsButton();
     }
 
     public void onClick(View v) {
@@ -104,9 +110,16 @@ public class HomePageActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    private boolean isUserAdmin () {
+        return loggedUser.equals("Admin");
+    }
 
-
-    //TODO: 1) rythmiseis (alli selida),
-    // allakse glwssa kai kwdikous
+    private void toggleSettingsButton() {
+        if (!isUserAdmin()) {
+            btnSettings.setEnabled(false);
+            btnSettings.setVisibility(View.GONE);
+            txtSettings.setVisibility(View.GONE);
+        }
+    }
 
 }
