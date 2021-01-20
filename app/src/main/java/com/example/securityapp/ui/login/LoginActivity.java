@@ -24,12 +24,13 @@ import com.example.securityapp.home.HomePageActivity;
 
 public class LoginActivity extends AppCompatActivity
                         implements View.OnClickListener{
+        //TODO: κουμπία για κάθε περίσταση (θα δούμε), στις ρυθμίσεις να βάλουμε χρόνο ενεργοποίησης/απενεργοποίησης
 
     private static final int PERMISSION_REQUEST_CODE = 1;
     private LoginViewModel loginViewModel;
     private final String defaultPhrase = "Please type password";
     private int counter = 3;
-    static public boolean isAlarmActive = false;
+    public static boolean isAlarmActive = false;
 
     private TextView attemptsInfo;
     private TextView inputDisplay;

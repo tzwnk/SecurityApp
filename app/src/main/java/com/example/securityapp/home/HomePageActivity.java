@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -14,16 +15,24 @@ import android.widget.Toast;
 import com.example.securityapp.R;
 import com.example.securityapp.ui.login.LoginActivity;
 
-import java.net.URI;
-
 public class HomePageActivity extends AppCompatActivity
                             implements View.OnClickListener {
 
     ImageButton btnAlarm;
     ImageButton btnSOSCall;
     ImageButton btnSettings;
+    ImageButton btnLogout;
     TextView txtSettings;
     TextView txtAlarm;
+    TextView txtStatusTitle;
+    TextView txtStatusAlarm;
+    TextView txtStatusAlarmValue;
+    TextView txtStatusPower;
+    TextView txtStatusPowerValue;
+    TextView txtStatusBattery;
+    TextView txtStatusBatteryValue;
+    TextView txtStatusPhone;
+    TextView txtStatusPhoneValue;
     String loggedUser;
 
     @Override
@@ -38,9 +47,21 @@ public class HomePageActivity extends AppCompatActivity
         btnSettings = findViewById(R.id.btnSettings);
         btnSettings.setOnClickListener(this);
         txtSettings = findViewById(R.id.txtSettings);
+        btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(this);
+        txtStatusTitle = findViewById(R.id.txtStatusTitle);
+        txtStatusAlarm = findViewById(R.id.txtStatusAlarm);
+        txtStatusAlarmValue = findViewById(R.id.txtStatusAlarmValue);
+        txtStatusPower = findViewById(R.id.txtStatusPower);
+        txtStatusPowerValue = findViewById(R.id.txtStatusPowerValue);
+        txtStatusBattery = findViewById(R.id.txtStatusBattery);
+        txtStatusBatteryValue = findViewById(R.id.txtStatusBatteryValue);
+        txtStatusPhone = findViewById(R.id.txtStatusPhone);
+        txtStatusPhoneValue = findViewById(R.id.txtStatusPhoneValue);
+
         Bundle bundle = getIntent().getExtras();
         loggedUser = bundle.getString("loggedUser");
-        toggleSettingsButton();
+        toggleVisibleButtons();
     }
 
     public void onClick(View v) {
@@ -53,6 +74,9 @@ public class HomePageActivity extends AppCompatActivity
                 break;
             case R.id.btnSOSCall:
                 performSOSCall();
+                break;
+            case R.id.btnLogout:
+                logout();
                 break;
         }
     }
@@ -92,9 +116,13 @@ public class HomePageActivity extends AppCompatActivity
         if (isAlarmActive) {
             btnAlarm.setImageResource(R.drawable.lock);
             txtAlarm.setText("ΕΝΕΡΓΟΠΟΙΗΣΗ ΣΥΝΑΓΕΡΜΟΥ");
+            txtStatusAlarmValue.setText("Ανενεργός");
+            txtStatusAlarmValue.setTextColor(Color.RED);
         } else {
             btnAlarm.setImageResource(R.drawable.unlock);
             txtAlarm.setText("ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ ΣΥΝΑΓΕΡΜΟΥ");
+            txtStatusAlarmValue.setText("Ενεργός");
+            txtStatusAlarmValue.setTextColor(Color.GREEN);
         }
     }
 
@@ -110,15 +138,26 @@ public class HomePageActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    private void logout () {
+        this.finish();
+    }
+
     private boolean isUserAdmin () {
         return loggedUser.equals("Admin");
     }
 
-    private void toggleSettingsButton() {
+    private void toggleVisibleButtons() {
         if (!isUserAdmin()) {
             btnSettings.setEnabled(false);
             btnSettings.setVisibility(View.GONE);
             txtSettings.setVisibility(View.GONE);
+
+            txtStatusPower.setVisibility(View.GONE);
+            txtStatusPowerValue.setVisibility(View.GONE);
+            txtStatusBattery.setVisibility(View.GONE);
+            txtStatusBatteryValue.setVisibility(View.GONE);
+            txtStatusPhone.setVisibility(View.GONE);
+            txtStatusPhoneValue.setVisibility(View.GONE);
         }
     }
 

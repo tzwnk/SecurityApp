@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -80,5 +81,173 @@
             android:id="@+id/txtSOSCAll"
             app:layout_constraintStart_toStartOf="@+id/btnSOSCall"
             app:layout_constraintTop_toBottomOf="@+id/btnSOSCall"/>
+
+    <ImageButton
+            android:layout_width="141dp"
+            android:layout_height="118dp"
+            app:srcCompat="@drawable/logout"
+            android:id="@+id/btnLogout"
+            android:scaleType="fitCenter"
+            android:background="@drawable/selectable_button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.499"
+            app:layout_constraintHorizontal_bias="0.844" />
+
+    <TextView
+            android:layout_width="141dp"
+            android:layout_height="61dp"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:text="ΕΞΟΔΟΣ"
+            android:textColor="#F00"
+            android:textStyle="bold"
+            android:ems="10"
+            android:id="@+id/txtLogout"
+            app:layout_constraintStart_toStartOf="@+id/btnLogout"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+
+    <TextView
+            android:layout_width="141dp"
+            android:layout_height="61dp"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:text="ΚΑΤΑΣΤΑΣΗ"
+            android:textStyle="bold"
+            android:ems="9"
+            android:id="@+id/txtStatusTitle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.771" />
+
+    <TextView
+            android:layout_width="149dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="right"
+            android:text="Συναγερμός: "
+            android:ems="9"
+            android:id="@+id/txtStatusAlarm"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.818"
+            app:layout_constraintHorizontal_bias="0.206" />
+
+    <TextView
+            android:layout_width="135dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="left"
+            android:text="Ανενεργός"
+            android:ems="9"
+            android:textColor="#F00"
+            android:id="@+id/txtStatusAlarmValue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.818"
+            app:layout_constraintHorizontal_bias="0.735"
+            app:layout_constraintStart_toEndOf="@+id/txtStatusAlarm" />
+    <TextView
+            android:layout_width="149dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="right"
+            android:text="Ηλ. τροφοδοσία: "
+            android:ems="9"
+            android:id="@+id/txtStatusPower"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.854"
+            app:layout_constraintHorizontal_bias="0.206" />
+
+    <TextView
+            android:layout_width="135dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="left"
+            android:text="ΟΚ"
+            android:ems="9"
+            android:textColor="#4CAF50"
+            android:id="@+id/txtStatusPowerValue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.854"
+            app:layout_constraintHorizontal_bias="0.735"
+            app:layout_constraintStart_toEndOf="@+id/txtStatusPower"/>
+
+    <TextView
+            android:layout_width="149dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="right"
+            android:text="Εφεδρική μπαταρία: "
+            android:ems="9"
+            android:id="@+id/txtStatusBattery"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.889"
+            app:layout_constraintHorizontal_bias="0.206" />
+
+    <TextView
+            android:layout_width="135dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="left"
+            android:text="ΟΚ"
+            android:ems="9"
+            android:textColor="#4CAF50"
+            android:id="@+id/txtStatusBatteryValue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.889"
+            app:layout_constraintHorizontal_bias="0.735"
+            app:layout_constraintStart_toEndOf="@+id/txtStatusBattery"/>
+    <TextView
+            android:layout_width="149dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="right"
+            android:text="Γραμμή τηλεφώνου: "
+            android:ems="9"
+            android:id="@+id/txtStatusPhone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.924"
+            app:layout_constraintHorizontal_bias="0.206" />
+
+    <TextView
+            android:layout_width="135dp"
+            android:layout_height="25dp"
+            android:inputType="textMultiLine"
+            android:gravity="left"
+            android:text="ΟΚ"
+            android:ems="9"
+            android:textColor="#4CAF50"
+            android:id="@+id/txtStatusPhoneValue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.924"
+            app:layout_constraintHorizontal_bias="0.735"
+            app:layout_constraintStart_toEndOf="@+id/txtStatusPhone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
