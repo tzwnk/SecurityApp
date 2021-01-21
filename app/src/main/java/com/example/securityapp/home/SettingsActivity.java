@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.example.securityapp.R;
 import com.example.securityapp.data.LoginDataSource;
-import com.example.securityapp.ui.login.LoginActivity;
 
 public class SettingsActivity extends AppCompatActivity
                             implements View.OnClickListener{
@@ -19,6 +18,7 @@ public class SettingsActivity extends AppCompatActivity
     Button btnFactorySettingsReset;
     EditText adminPass;
     EditText userPass;
+    EditText lockingDelay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +30,16 @@ public class SettingsActivity extends AppCompatActivity
         btnFactorySettingsReset.setOnClickListener(this);
         adminPass = findViewById(R.id.adminPass);
         userPass = findViewById(R.id.userPass);
-        updateTextsWithCurrentPasswords();
+
+        lockingDelay = findViewById(R.id.lockingDelay);
+        lockingDelay.setText(HomePageActivity.lockingDelayValue);
+        updateFieldsWithCurrentValues();
     }
 
     public void onClick(View v) {
         switch (v.getId()) { //todo: change to if with one case
             case R.id.btnSave:
-                saveNewPasswords();
+                saveNewValues();
                 break;
             case R.id.btnFactorySettingsReset:
                 factoryResetPasswords();
@@ -44,22 +47,25 @@ public class SettingsActivity extends AppCompatActivity
         }
     }
 
-    private void updateTextsWithCurrentPasswords() {
+    private void updateFieldsWithCurrentValues() {
         adminPass.setText(LoginDataSource.adminPassword);
         userPass.setText(LoginDataSource.userPassword);
+        lockingDelay.setText(HomePageActivity.lockingDelayValue);
     }
 
-    private void saveNewPasswords() {
+    private void saveNewValues() {
         LoginDataSource.adminPassword = String.valueOf(adminPass.getText());
         LoginDataSource.userPassword = String.valueOf(userPass.getText());
-        Toast.makeText(getApplicationContext(), "Οι κωδικοί ενημερώθηκαν",
+        HomePageActivity.lockingDelayValue = String.valueOf(lockingDelay.getText());
+        Toast.makeText(getApplicationContext(), "Οι τιμές ενημερώθηκαν",
                 Toast.LENGTH_SHORT).show();
     }
 
     private void factoryResetPasswords() {
         LoginDataSource.adminPassword = "12345";
         LoginDataSource.userPassword = "1234";
-        updateTextsWithCurrentPasswords();
+        HomePageActivity.lockingDelayValue = "5";
+        updateFieldsWithCurrentValues();
         Toast.makeText(getApplicationContext(), "Έγινε επαναφορά κωδικών",
                 Toast.LENGTH_SHORT).show();
     }

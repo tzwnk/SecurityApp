@@ -1,16 +1,25 @@
 package com.example.securityapp.home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.solver.state.State;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.securityapp.R;
 import com.example.securityapp.ui.login.LoginActivity;
@@ -18,12 +27,14 @@ import com.example.securityapp.ui.login.LoginActivity;
 public class HomePageActivity extends AppCompatActivity
                             implements View.OnClickListener {
 
+    static String lockingDelayValue = "5";
     ImageButton btnAlarm;
     ImageButton btnSOSCall;
     ImageButton btnSettings;
     ImageButton btnLogout;
     TextView txtSettings;
     TextView txtAlarm;
+    TextView txtLogout;
     TextView txtStatusTitle;
     TextView txtStatusAlarm;
     TextView txtStatusAlarmValue;
@@ -49,6 +60,7 @@ public class HomePageActivity extends AppCompatActivity
         txtSettings = findViewById(R.id.txtSettings);
         btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(this);
+        txtLogout = findViewById(R.id.txtLogout);
         txtStatusTitle = findViewById(R.id.txtStatusTitle);
         txtStatusAlarm = findViewById(R.id.txtStatusAlarm);
         txtStatusAlarmValue = findViewById(R.id.txtStatusAlarmValue);
@@ -84,12 +96,10 @@ public class HomePageActivity extends AppCompatActivity
     private void promptVerification(Boolean isAlarmActive) {
         String actionWord = "ενεργοποιήσετε";
         String resultWord = "ενεργοποιήθηκε";
-        int style = R.style.AlertDialog_Disabled;
 
         if (isAlarmActive) {
             actionWord = "απενεργοποιήσετε";
             resultWord = "απενεργοποιήθηκε";
-            style = R.style.AlertDialog_Enabled;
         }
 
         String finalResultWord = resultWord;
@@ -158,6 +168,16 @@ public class HomePageActivity extends AppCompatActivity
             txtStatusBatteryValue.setVisibility(View.GONE);
             txtStatusPhone.setVisibility(View.GONE);
             txtStatusPhoneValue.setVisibility(View.GONE);
+
+            ViewTreeObserver vto = txtStatusTitle.getViewTreeObserver();
+            vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    txtStatusTitle.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    btnLogout.setX(txtStatusTitle.getX());
+                    txtLogout.setX(txtStatusTitle.getX());
+                }
+            });
         }
     }
 

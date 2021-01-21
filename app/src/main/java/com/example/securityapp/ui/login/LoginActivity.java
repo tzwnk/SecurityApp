@@ -24,9 +24,7 @@ import com.example.securityapp.home.HomePageActivity;
 
 public class LoginActivity extends AppCompatActivity
                         implements View.OnClickListener{
-        //TODO: κουμπία για κάθε περίσταση (θα δούμε), στις ρυθμίσεις να βάλουμε χρόνο ενεργοποίησης/απενεργοποίησης
 
-    private static final int PERMISSION_REQUEST_CODE = 1;
     private LoginViewModel loginViewModel;
     private final String defaultPhrase = "Please type password";
     private int counter = 3;
@@ -86,18 +84,6 @@ public class LoginActivity extends AppCompatActivity
                 }
             }
         });
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-
-            if (checkSelfPermission(Manifest.permission.SEND_SMS)
-                    == PackageManager.PERMISSION_DENIED) {
-
-                Log.d("permission", "permission denied to SEND_SMS - requesting it");
-                String[] permissions = {Manifest.permission.SEND_SMS};
-                requestPermissions(permissions, PERMISSION_REQUEST_CODE);
-
-            }
-        }
     }
 
     @Override

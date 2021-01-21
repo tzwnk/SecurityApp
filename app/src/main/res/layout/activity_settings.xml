@@ -7,6 +7,29 @@
         tools:context=".home.SettingsActivity">
 
     <TextView
+            android:text="ΚΩΔΙΚΟΣ ΔΙΑΧΕΙΡΙΣΤΗ"
+            android:layout_width="148dp"
+            android:layout_height="22dp"
+            android:id="@+id/adminPassLabel"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.099"
+            app:layout_constraintVertical_bias="0.119" />
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_height="44dp"
+            android:id="@+id/adminPass"
+            app:layout_constraintStart_toEndOf="@+id/adminPassLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/adminPassLabel" />
+
+    <TextView
             android:text="ΚΩΔΙΚΟΣ ΧΡΗΣΤΗ"
             android:layout_width="148dp"
             android:layout_height="22dp"
@@ -30,39 +53,27 @@
             app:layout_constraintBottom_toBottomOf="@+id/userPassLabel" />
 
     <TextView
-            android:text="ΚΩΔΙΚΟΣ ΔΙΑΧΕΙΡΙΣΤΗ"
-            android:layout_width="148dp"
-            android:layout_height="22dp"
-            android:id="@+id/adminPassLabel"
+            android:text="ΧΡΟΝΟΚΑΘΥΣΤΕΡΗΣΗ ΚΛΕΙΔΩΜΑΤΟΣ"
+            android:layout_width="150dp"
+            android:layout_height="43dp"
+            android:id="@+id/lockingDelayLabel"
             android:inputType="textMultiLine"
             android:ems="10"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.099"
-            app:layout_constraintVertical_bias="0.119" />
+            app:layout_constraintHorizontal_bias="0.098"
+            app:layout_constraintVertical_bias="0.286" />
 
     <EditText
             android:layout_width="wrap_content"
+            android:layout_height="44dp"
             android:inputType="text"
             android:ems="10"
-            android:layout_height="44dp"
-            android:id="@+id/adminPass"
-            app:layout_constraintStart_toEndOf="@+id/adminPassLabel"
-            app:layout_constraintBottom_toBottomOf="@+id/adminPassLabel" />
-
-    <Button
-            android:text="ΑΠΟΘΗΚΕΥΣΗ ΚΩΔΙΚΩΝ"
-            android:layout_width="141dp"
-            android:layout_height="65dp"
-            android:id="@+id/btnSave"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.816"
-            app:layout_constraintVertical_bias="0.326" />
+            android:id="@+id/lockingDelay"
+            app:layout_constraintStart_toEndOf="@+id/lockingDelayLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/lockingDelayLabel" />
 
     <Button
             android:text="ΕΠΑΝΑΦΟΡΑ ΕΡΓ. ΡΥΘΜΙΣΕΩΝ"
@@ -73,7 +84,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.196"
-            app:layout_constraintVertical_bias="0.326" />
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintVertical_bias="0.39" />
+
+    <Button
+            android:text="ΑΠΟΘΗΚΕΥΣΗ ΠΕΔΙΩΝ"
+            android:layout_width="141dp"
+            android:layout_height="65dp"
+            android:id="@+id/btnSave"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.822"
+            app:layout_constraintVertical_bias="0.39" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
