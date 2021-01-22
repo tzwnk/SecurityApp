@@ -11,7 +11,7 @@
     <ImageButton
             android:layout_width="141dp"
             android:layout_height="118dp"
-            app:srcCompat="@drawable/lock"
+            app:srcCompat="@drawable/unlock"
             android:id="@+id/btnEnableAlarm"
             android:scaleType="fitCenter"
             android:background="@drawable/selectable_button_bg"

@@ -124,12 +124,12 @@ public class HomePageActivity extends AppCompatActivity
 
     private void changeButtons(Boolean isAlarmActive) {
         if (isAlarmActive) {
-            btnAlarm.setImageResource(R.drawable.lock);
+            btnAlarm.setImageResource(R.drawable.unlock);
             txtAlarm.setText("ΕΝΕΡΓΟΠΟΙΗΣΗ ΣΥΝΑΓΕΡΜΟΥ");
             txtStatusAlarmValue.setText("Ανενεργός");
             txtStatusAlarmValue.setTextColor(Color.RED);
         } else {
-            btnAlarm.setImageResource(R.drawable.unlock);
+            btnAlarm.setImageResource(R.drawable.lock);
             txtAlarm.setText("ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ ΣΥΝΑΓΕΡΜΟΥ");
             txtStatusAlarmValue.setText("Ενεργός");
             txtStatusAlarmValue.setTextColor(Color.GREEN);
